@@ -22,6 +22,9 @@ function NavBar() {
         <li>
           <Link href="/login">Login</Link>
         </li>
+        <li>
+          <Link href="../Dashboard">Dashboard</Link>
+        </li>
       </ul>
       <div className={styles.searchBar}>
         <input
