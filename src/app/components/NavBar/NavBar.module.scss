@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 .navBar {
   display: flex;
   height: 100px;
@@ -18,21 +20,25 @@
 
   .navLinks {
     list-style: none;
-    font-family: 'Space Mono', monospace;
+    font-family: 'Space Grotesk', sans-serif; /* Apply Space Grotesk */
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 40px;
+    gap: 100px; /* Adjust spacing between links */
 
     li {
       a {
         text-decoration: none;
         color: #333;
         font-weight: bold;
-        transition: color 0.3s ease-in-out;
+        font-size: 1rem; /* Adjust font size */
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        padding: 10px 15px;
 
         &:hover {
           color: #0070f3;
+          background-color: #ddd; /* Grey box on hover */
+          border-radius: 5px;
         }
       }
     }
@@ -46,13 +52,7 @@
     border-radius: 15px;
     background: #f9f9f9;
     width: 220px;
-    position: relative; /* To position the search icon correctly */
-
-    .searchIcon {
-      font-size: 1.2rem;
-      color: #555;
-      margin-right: 8px;
-    }
+    position: relative;
 
     .searchInput {
       border: none;
@@ -62,7 +62,6 @@
       font-size: 1rem;
     }
 
-    /* Add the search icon using a pseudo-element */
     &::before {
       content: "\1F50D"; /* Unicode for magnifying glass icon */
       font-size: 1.5rem;
@@ -70,7 +69,7 @@
       top: 50%;
       left: 0.5rem;
       transform: translateY(-50%);
-      color: #555; /* Adjust color as needed */
+      color: #555;
     }
   }
 }

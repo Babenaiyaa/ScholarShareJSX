@@ -3,7 +3,14 @@ import InputField from '../components/InputField/InputField';
 import Button from '../components/Button/Button';
 
 function RegistrationForm({ children }) {
-  const [formData, setFormData] = useState({ name: '', email: '', password: '', role: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phoneNumber: '',
+    role: '',
+  });
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -12,22 +19,49 @@ function RegistrationForm({ children }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.password || !formData.role) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword ||
+      !formData.phoneNumber ||
+      !formData.role
+    ) {
       setError('All fields are required');
       return;
     }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (!/^[0-9]{10}$/.test(formData.phoneNumber)) {
+      setError('Invalid phone number');
+      return;
+    }
+
     setError('');
     alert('Registration Successful!');
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{
+    <form
+      onSubmit={handleSubmit}
+      style={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center', 
+        alignItems: 'center',
         width: '70%',
+      }}
+    >
+      <h2 style={{ 
+        marginBottom: '30px', 
+        fontSize: '40px', 
+        fontFamily: 'Space Grotesk, sans-serif' // Apply Space Grotesk font here
       }}>
-      <h2 style={{ marginBottom: '30px', fontSize: '40px' }}>Create Account</h2>
+        Create Account
+      </h2>
       {error && <p style={{ color: 'red', marginBottom: '10px' }}>{error}</p>}
       <select
         name="role"
@@ -49,13 +83,15 @@ function RegistrationForm({ children }) {
         <option value="researcher">Researcher</option>
       </select>
       <br />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginBottom: '20px',
-        padding: '10px',
-        gap: '20px'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginBottom: '20px',
+          padding: '10px',
+          gap: '20px',
+        }}
+      >
         <button
           style={{
             color: '#5C5C5C',
@@ -67,12 +103,16 @@ function RegistrationForm({ children }) {
             alignItems: 'center',
           }}
         >
-          <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-1024.png" alt="Google Logo" style={{
-            width: '24px',
-            height: '24px',
-            marginRight: '10px',
-            objectFit: 'contain',
-          }} />
+          <img
+            src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-1024.png"
+            alt="Google Logo"
+            style={{
+              width: '24px',
+              height: '24px',
+              marginRight: '10px',
+              objectFit: 'contain',
+            }}
+          />
           <span style={{ fontSize: '14px' }}>Sign up with Google</span>
         </button>
         <button
@@ -86,12 +126,16 @@ function RegistrationForm({ children }) {
             alignItems: 'center',
           }}
         >
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="Facebook Logo" style={{
-            width: '24px',
-            height: '24px',
-            marginRight: '10px',
-            objectFit: 'contain',
-          }} />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
+            alt="Facebook Logo"
+            style={{
+              width: '24px',
+              height: '24px',
+              marginRight: '10px',
+              objectFit: 'contain',
+            }}
+          />
           <span style={{ fontSize: '14px' }}>Sign up with Facebook</span>
         </button>
       </div>
@@ -107,7 +151,7 @@ function RegistrationForm({ children }) {
         style={{
           width: '100%',
           height: '40px',
-          marginBottom: '20px'
+          marginBottom: '20px',
         }}
       />
       <br />
@@ -120,7 +164,20 @@ function RegistrationForm({ children }) {
         style={{
           width: '100%',
           height: '40px',
-          marginBottom: '20px'
+          marginBottom: '20px',
+        }}
+      />
+      <br />
+      <InputField
+        type="text"
+        name="phoneNumber"
+        placeholder="Phone Number"
+        value={formData.phoneNumber}
+        onChange={handleChange}
+        style={{
+          width: '100%',
+          height: '40px',
+          marginBottom: '20px',
         }}
       />
       <br />
@@ -133,10 +190,22 @@ function RegistrationForm({ children }) {
         style={{
           width: '100%',
           height: '40px',
-          marginBottom: '20px'
+          marginBottom: '20px',
         }}
       />
       <br />
+      <InputField
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        value={formData.confirmPassword}
+        onChange={handleChange}
+        style={{
+          width: '100%',
+          height: '40px',
+          marginBottom: '20px',
+        }}
+      />
       <br />
       <Button
         name="Register"
@@ -144,7 +213,7 @@ function RegistrationForm({ children }) {
         style={{
           width: '100%',
           height: '40px',
-          marginBottom: '20px'
+          marginBottom: '20px',
         }}
       />
       <br />

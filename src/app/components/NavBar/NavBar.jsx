@@ -11,8 +11,8 @@ function NavBar() {
           <Image 
             src="/logo.png"  // Ensure this path is correct
             alt="ScholarShare Logo" 
-            width={285}
-            height={35} 
+            width={250}  // Smaller logo size
+            height={30}  
             priority 
           />
         </Link>
@@ -27,10 +27,7 @@ function NavBar() {
           <Link href="/services">Services</Link>
         </li>
         <li>
-          <Link href="/review">Review</Link>
-        </li>
-        <li>
-          <Link href="/login">Login</Link>
+          <Link href="/login">Singup</Link>
         </li>
       </ul>
 
