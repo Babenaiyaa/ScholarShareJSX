@@ -47,12 +47,19 @@
   .searchBar {
     display: flex;
     align-items: center;
-    border: 1px solid #000;
+    border: 2px solid #000;
     padding: 0.5rem 1rem;
     border-radius: 15px;
     background: #f9f9f9;
-    width: 220px;
+    width: 210px;
     position: relative;
+
+    .searchIcon {
+      width: 20px; /* Adjust size */
+      height: 20px;
+      fill: #555; /* Set color */
+      margin-right: 10px;
+    }
 
     .searchInput {
       border: none;
@@ -60,16 +67,9 @@
       width: 100%;
       outline: none;
       font-size: 1rem;
+      font-family: 'Space Grotesk', sans-serif; /* Apply font */
+      letter-spacing: 0.25em; /* 25% spacing */
     }
 
-    &::before {
-      content: "\1F50D"; /* Unicode for magnifying glass icon */
-      font-size: 1.5rem;
-      position: absolute;
-      top: 50%;
-      left: 0.5rem;
-      transform: translateY(-50%);
-      color: #555;
-    }
   }
 }
