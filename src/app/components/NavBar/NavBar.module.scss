@@ -1,66 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 .navBar {
   display: flex;
-  height: 140px;
+  height: 100px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  background-color: #fff;
 
   .logo {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    margin-right: 1rem;
-    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
   }
 
   .navLinks {
     list-style: none;
-    font-family: space-mono;
+    font-family: 'Space Grotesk', sans-serif; /* Apply Space Grotesk */
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 50px;
+    gap: 100px; /* Adjust spacing between links */
 
     li {
-      margin-right: 1rem;
-    }
+      a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 1rem; /* Adjust font size */
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        padding: 10px 15px;
 
-    a {
-      text-decoration: none;
-      color: #333;
+        &:hover {
+          color: #0070f3;
+          background-color: #ddd; /* Grey box on hover */
+          border-radius: 5px;
+        }
+      }
     }
   }
 
   .searchBar {
-    border: 1px solid #000000;
-    padding: 1rem;
-    border-radius: 15px;
     display: flex;
     align-items: center;
-    position: relative; 
+    border: 2px solid #000;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    background: #f9f9f9;
+    width: 210px;
+    position: relative;
+
+    .searchIcon {
+      width: 20px; /* Adjust size */
+      height: 20px;
+      fill: #555; /* Set color */
+      margin-right: 10px;
+    }
 
     .searchInput {
       border: none;
+      background: transparent;
       width: 100%;
-      height: 100%;
-      margin-left: 30px;
-
-      &:focus {
-        border: none;
-        outline: none;
-      }
+      outline: none;
+      font-size: 1rem;
+      font-family: 'Space Grotesk', sans-serif; /* Apply font */
+      letter-spacing: 0.25em; /* 25% spacing */
     }
 
-    &::before {
-      content: "\1F50D";
-      font-size: 1.5rem;
-      position: absolute;
-      top: 50%;
-      left: 0.5rem;
-      transform: translateY(-50%);
-      color: #000000;
-      filter: grayscale(100%) brightness(0);
-    }
   }
 }
