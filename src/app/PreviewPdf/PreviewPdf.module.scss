@@ -1,0 +1,64 @@
+// src/app/PreviewPdf/PreviewPdf.module.scss
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .wrapper {
+    width: 75%;
+    max-width: 1200px;
+    background-color: #d4c5a6d2;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid #d4c5a6d2; 
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  .searchBar {
+    display: flex;
+    justify-content: left;
+    background-color: #ffffff; /* Ensures background is white */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 3px 6px rgba(219, 197, 197, 0.1);
+    border: 10px solid #d4c5a6d2;
+  }
+  
+  .searchBar input {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: #3c2a1e;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .grid .box {
+    background-color: #f5f5f5; 
+    border-radius: 20px; /* Rounded corners for each box */
+    padding: 50px;
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+  }
+  
